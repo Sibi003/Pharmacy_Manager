@@ -1,0 +1,10 @@
+.huge{
+    font-size: 10rem;
+    color:brown;
+}
+.invisible{
+    visibility: collapse;
+}
+.body{
+    background-color: yellow;
+}

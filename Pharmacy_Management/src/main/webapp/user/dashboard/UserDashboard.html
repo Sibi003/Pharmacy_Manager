@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>User Dashboard</title>
+
+  <link rel="stylesheet" href="UserDashboard.css">
+
+</head>
+<body>
+  <header>
+    <h3 align="left">Pharmacy Manager</h3>
+    <div class="profile-pic">
+      <img src="Pharma.png" alt="Profile Picture" id="profilePic">
+      <div class="logout-options" id="logoutOptions">
+        <a href="#" id="logoutLink">Logout</a>
+      </div>
+    </div>
+  </header>
+  <aside class="menu">
+    <ul>
+     <li><div class="logo">
+        <img src="Pharma.png" alt="Logo"><br><br><br>
+      </div></li>
+        <li><a href="http://localhost:8080/Pharmacy_Management/user/dashboard/UserDashboard.html" id="home">Home</a></li>
+      <li><a href="#" id="new-bill">New Bill</a></li>
+      <li><a href="#" id="stock-details">Stock Details</a></li>
+        
+    </ul>
+  </aside>
+
+ <div id="main">
+  <div id="bill-data" >
+	  <div id="bill-search-elements"><span id="date">DATE:<input type='date' placeholder='dd/mm/yyyy'/></span>
+	      <span id="bill-search">BILL_ID:<input type="text" placeholder="Enter bill id" /><button id="bill-search">search</button></span></div> 
+    <table id="data-table">
+    </table>
+
+  </div>
+  <div id="bill-details-container" style="display:none">
+    <span id="cancel">X</span>
+    <h3 align="left">Bill Id : <span id="bill_id"></span></h3>
+    <table id="details-table">
+    </table>
+  </div>
+     <div id="new-bill-block" style="display:none">
+         <h3 aligh="left">New Bill</h3>
+         <table id="new-bill-table">
+			 <h3 id="quantityInfo" align="center"></h3>
+             <tr><th>TABLET_NAME</th><th>QUANTITY</th><th>STORAGE_ID</th><th></th></tr>
+             <tr id="first-bill-field">
+                 <td><select id="dynamicSelect" class='dynamicSelect'><option value="">select</option></select> </td>
+                 <td><input type="text" id="quantity" class='quantity'/></td>
+                 <td><select class='storage-id' id='storage-id'><option value=''>select</option></select></td>
+                 <td><button id="add-bill-fields">+</button></td>
+             </tr>
+
+         </table>
+         <button id="bill-submit" type="submit"  value="Submit">Submit</button>
+     </div>
+     <div id="display-stock-search" style="display:none">
+		<span> <select id="tabletSearch"><option value="">select</option></select>
+		 <button id="searchTabletDetails">search</button>
+		 <button id="updateStockposition">+Update</button>
+		 <button id="AddStocks">+Add</button></span>
+		 </div>
+		 <div id="formContainer"></div>
+		 <div id="tabletDetails" style="display:none">
+		  <span id="cancel-tablet">X</span>
+		   <table id="tablet-data"></table>
+		 </div>
+ </div>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
+  <!-- Include Select2 JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+  <script src="UserDashboard.js"></script>
+</body>
+</html>

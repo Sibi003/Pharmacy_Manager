@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts
+Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+ 
+ 	<package name="adminLogin" extends="struts-default,json-default">
+        <interceptors>
+            <interceptor name="adminAuthenticator" class="com.interceptors.AdminAuthenticator"/>
+            <interceptor-stack name="adminLoginInterceptor">
+                <interceptor-ref name="paramsPrepareParamsStack" />
+                <interceptor-ref name="adminAuthenticator"/>
+            </interceptor-stack>
+        </interceptors>
+
+
+        <default-interceptor-ref name="adminLoginInterceptor"/>
+        <default-action-ref name="sessionExpired" >/failure.jsp</default-action-ref>
+        <global-results>
+            <result name="sessionExpired">/failure.txt</result>
+        </global-results>
+
+        <action name="adminLogin" class="com.admin.AdminService" method="adminLogin">
+            <result name="success">/admin/dashboard/AdminDashboard.html</result>
+            <result name="failure">/failure.txt</result>
+            <result name="sessionExpired">/failure.txt</result>
+        </action>
+    </package>
+    
+    <package name="adminService" extends="struts-default,json-default">
+    	  <interceptors>
+    		<interceptor name="adminAuthorizer" class="com.interceptors.AdminAuthorizer"/>
+    		<interceptor-stack name="adminServiceAuthorizer">
+    			<interceptor-ref name="paramsPrepareParamsStack"/>
+    			<interceptor-ref name="adminAuthorizer"/>
+    		</interceptor-stack>
+    	</interceptors>
+    	<default-interceptor-ref name="adminServiceAuthorizer"/> 
+    	<global-results>
+            <result name="sessionExpired">/failure.jsp</result>
+        </global-results>
+    	
+    	<action name="GetBills" class="com.admin.AdminService" method="specificBills">
+    		<result type="json" name="success"/>
+    		<result name="failure">/failure.jsp</result>
+    	</action>
+    	<action name="GetAllBills" class="com.admin.AdminService" method="allBills">
+    		<result type="json" name="success"/>
+    		<result name="failure">/failure.jsp</result>
+    	</action>
+    	<action name="AdminLogout" class="com.admin.AdminService" method="adminLogout">
+    		<result name="success">/Success.txt</result>
+    		<result name="failure">/failure.txt</result>
+    	</action>
+    	<action name="AdminBillDetails" class="com.admin.AdminService" method="billInfo">
+    		<result type="json" name="success"/>
+    		<result name="failure">/failure.txt</result>
+    	</action>
+    	<action name="AddIncomingStocks" class="com.admin.AdminService" method="addIncomingStocks">
+    		<result type="json" name="success"/>
+    		<result name="failure">/failure.txt</result>
+    	</action>
+    	<action name="PopulateTabletsAdmin" class="com.admin.AdminService" method="populateTabletsName">
+            <result type="json" name="none"/>
+        </action>
+        <action name="AddUser" class="com.admin.AdminService" method="addUser">
+        	<result name="success">/Success.txt</result>
+        	<result name="failure">/failure.txt</result>
+        </action>
+        <action name="AddAdmin" class="com.admin.AdminService" method="addAdmin">
+        	<result name="success">/Success.txt</result>
+        	<result name="failure">/failure.txt</result>
+        </action>
+        <action name="RemoveUser" class="com.admin.AdminService" method="removeUser">
+        	<result name="success">/Success.txt</result>
+        	<result name="failure">/failure.txt</result>
+        </action>
+        <action name="AuditLogs" class="com.admin.AdminService" method="fetchAuditLogs">
+        	<result type="json" name="success"/>
+        	<result name="failure">failure.txt</result>
+        </action>
+        <action name="LogDetails" class="com.admin.AdminService" method="fetchLogDetails">
+        	<result type="json" name="success"/>
+        	<result name="failure">failure.txt</result>
+        </action>
+    	<action name="AllUsers" class="com.admin.AdminService" method="fetchAllUsers">
+        	<result type="json" name="success"/>
+        	<result name="failure">failure.txt</result>
+        </action>
+    </package>
+
+</struts>

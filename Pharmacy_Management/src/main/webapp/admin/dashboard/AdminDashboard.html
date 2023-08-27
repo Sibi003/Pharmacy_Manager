@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Admin Dashboard</title>
+
+  <link rel="stylesheet" href="AdminDashboard.css">
+
+</head>
+<body>
+  <header>
+    <h3 align="left">Pharmacy Manager</h3>
+    <div class="profile-pic">
+      <img src="Pharma.png" alt="Profile Picture" id="profilePic">
+      <div class="logout-options" id="logoutOptions" style="display:none">
+        <a href="#" id="logoutLink">Logout</a>
+      </div>
+    </div>
+  </header>
+  <aside class="menu">
+    <ul>
+     <li><div class="logo">
+        <img src="Pharma.png" alt="Logo"><br><br><br>
+      </div></li>
+        <li><a href="http://localhost:8080/Pharmacy_Management/admin/dashboard/AdminDashboard.html" id="home">Home</a></li>
+      <li><a href="#" id="all-bill">All Bill</a></li>
+      <li><a href="#" id="add-Stocks">Add Stocks</a></li>
+      <li><a href="#" id="add-users">Manage Users</a></li>
+      <li><a href="#" id="audit-logs">View Logs</a></li>
+        
+    </ul>
+  </aside>
+
+ <div id="main">
+  <div id="bill-data" >
+	 <div id="bill-search-elements">
+		 <span id="date">DATE:<input type='date' placeholder='dd/mm/yyyy'/></span>
+	      <span id="bill-search">BILL_ID:<input type="text" placeholder="Enter bill id" /><button>search</button></span>
+	 </div>
+	 <h3 id='today-bill-title'>TODAY BILLS</h3>
+	 
+    <table id="data-table" style="overflow: auto">
+		
+    </table>
+    <div id="prevNext"></div>
+ </div>
+  
+  <div id="bill-details-container" style="display:none">
+    <span><button id="cancel">x</button><span>
+	
+    <h3 align="left">Bill Id : <span id="bill_id"></span></h3>
+    <table id="details-table" style="overflow: auto">
+    </table>
+  </div>
+  
+  <div id='add-user-buttons'></div>
+  <div id="users-list-container" style="width: 60%; margin-left: 30%; display: none;">
+	  <span><h3>users</h3></span>
+	  <table id="users-list-table"></table>
+  </div>
+   <div id="formContainer"></div>
+   <div id="audit-log-container" style="display:none">
+	   
+	   <div id="log-search-options">
+	    <span id="date-log">DATE:<input type='date' placeholder='dd/mm/yyyy'/></span>
+	    <span id="user-type-log">USER_TYPE:
+			<select id="user-type-select">
+			<option value="">select</option><option value="admin">admin</option>
+	         <option value="user">user</option>
+	         </select>
+	         </span>
+	    <span id="id-log">ID:<input  type="text" placeholder="user's_id"/><button id="id-log-search">search</button></span>
+	   </div>
+	   
+	   <div id="log-details" style="display:none"></div>
+	   <table id="audit-log-table" style="overflow: auto"></table>
+   </div>
+   
+	  
+  
+ </div>
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
+  <!-- Include Select2 JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+  <script src="AdminDashboard.js"></script>
+ </body>
+ </html>

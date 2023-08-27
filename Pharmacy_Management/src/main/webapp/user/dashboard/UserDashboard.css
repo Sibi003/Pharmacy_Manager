@@ -1,0 +1,267 @@
+/* Set overall layout using flexbox */
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  background-color: #EEEDED;
+}
+
+header {
+  background-color: #0c1e5c;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Reset default margins and paddings */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styles */
+h3 {
+  margin: 20px;
+  
+}
+
+.profile-pic img {
+margin-top:10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.logout-options.show {
+  margin-top: 30px;
+  display: block;
+}
+
+.logout-options {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  z-index: 1;
+}
+
+.profile-pic:hover + .logout-options,
+.logout-options:hover {
+  display: block;
+
+}
+
+.logout-options a {
+  color: #333;
+  text-decoration: none;
+}
+
+.logout-options a:hover {
+  text-decoration: underline;
+}
+
+/* Aside/Menu styles */
+aside {
+  background-color: #f2f2f2;
+  color: #333;
+  width: 200px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 60px; /* Adjust to match the height of the header */
+}
+
+/* Styling for the menu */
+.menu {
+  background-color: #0e1738;
+  width: 200px;
+  padding: 20px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+  background-color: #4682A9;
+}
+
+/* Styling for the logo */
+.logo {
+  text-align: center;
+}
+
+.logo img {
+  width: 100px;
+  height: 100px;
+}
+
+/* Table styling */
+/* Styling for the data table */
+table {
+  width:100%;
+  border-collapse: collapse;
+  margin:5% 0 0 0;
+  background-color: white;
+}
+
+/* Styling for the table header */
+table th {
+  background-color: grey;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Styling for the table cells */
+table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Styling for the table rows on hover */
+table tr:hover {
+  background-color: #4682A9;
+}
+
+.clicked {
+  box-shadow: 0 3px 4px 0 #DBEDF3;
+  opacity: 0.5;
+  background-color: #4682A9;
+
+}
+#bill-details-container,#bill-data,#new-bill-block,#display-stock-search,#formContainer,#tabletDetails,#add-user-buttons,#users-list-table{
+  width: 60%;
+  margin-left:30%;
+
+}
+#display-stock-search
+{
+	margin-top:5%;
+	
+}
+
+/* CSS for the arrow button */
+#cancel {
+  cursor: pointer;
+  margin-left: 98%;
+}
+#bill-submit{
+margin-top:3%;
+
+}
+#cancel-tablet {
+  cursor: pointer;
+  margin-left: 98%;
+  
+}
+#cancel-form {
+  cursor: pointer;
+  margin-left: 90%;
+  
+}
+
+
+
+
+/* Style for the stock-fields container */
+.stock-fields {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+/* Style for input fields */
+.stock-fields input[type="text"] {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+ 
+/* Style for the submit button */
+.stock-fields input[type="submit"] {
+  display: block;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.stock-fields select {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 5%;
+}
+
+
+.stock-fields input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+
+#formContainer {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Button styling */
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Add spacing to the buttons */
+#display-stock-search {
+  margin-top: 20px;
+}
+
+#formContainer {
+  margin-top: 20px;
+}
+#bill-search-elements{
+	margin-top: 5%;
+}
+#date{
+	margin-right: 45%;
+}
+
+
+
+

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts
+Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+    <package name="userLogin" extends="struts-default,json-default">
+        <result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult">
+                <!-- Set the root parameter to the name of the variable holding the JSON data -->
+                <!--<param name="root">jsonBills</param>-->
+            </result-type>
+        </result-types>
+
+        <interceptors>
+            <interceptor name="userAuthenticator" class="com.interceptors.UserAuthenticator"/>
+            <interceptor-stack name="userLoginInterceptor">
+                <interceptor-ref name="paramsPrepareParamsStack" />
+                <interceptor-ref name="userAuthenticator"/>
+            </interceptor-stack>
+        </interceptors>
+
+
+        <default-interceptor-ref name="userLoginInterceptor"/>
+        <default-action-ref name="sessionExpired" >/failure.jsp</default-action-ref>
+        <global-results>
+            <result name="sessionExpired">/failure.txt</result>
+        </global-results>
+
+        <action name="userLogin" class="com.user.UserService" method="userLogin">
+            <result name="success">user/dashboard/UserDashboard.html</result>
+            <result name="failure">/failure.txt</result>
+            <result name="sessionExpired">/failure.txt</result>
+        </action>
+    </package>
+    <package name="userService" extends="struts-default,json-default">
+        <result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
+
+        <interceptors>
+            <interceptor name="userAuthorizer" class="com.interceptors.UserAuthorizer"></interceptor>
+            <interceptor-stack name="userAuthorizers">
+                <interceptor-ref name="userAuthorizer"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="userAuthorizers"></default-interceptor-ref>
+
+        <global-results>
+            <result name="sessionExpired">/failure.jsp</result>
+        </global-results>
+
+
+
+
+
+        <action name="userLogout" class="com.user.UserService" method="userLogout">
+            <result name="success">/user/login/Login.html</result>
+        </action>
+
+        <action name="CurrentDayBills" class="com.user.UserService" method="getTodayBills">
+            <result  type="json" name="none"/>
+        </action>
+        <action name="BillDetails" class="com.user.UserService" method="BillInfo">
+            <result type="json" name="none"/>
+        </action>
+        <action name="PopulateTablets" class="com.user.UserService" method="populateTabletsName">
+            <result type="json" name="none"/>
+        </action>
+        <action name="GenerateNewBill" class="com.user.UserService" method="generateNewBill">
+            <result  type="json" name="failure">/failure.txt</result>
+            <result type="json" name="none"/>
+        </action>
+        <action name="AddStocks" class="com.user.UserService" method="addStocks">
+            <result type="json" name="none"/>
+        </action>
+        <action name="TabletDetails" class="com.user.UserService" method="tabletDetails">
+            <result type="json" name="none"/>
+        </action>
+        <action name="UpdateStocks" class="com.user.UserService" method="updateStockPositions">
+            <result type="json" name="success"/>  
+        </action>
+        <action name="StorageIds" class="com.user.UserService" method="fetchStorageIds">
+            <result type="json" name="none"/>  
+        </action>
+        
+
+    </package>
+
+
+
+</struts>
