@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'pharmacyManager'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9C63033ED1A74355A1C53EE757DC442B }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5D76DC5B1D8141F8BC69CB79AB81AC02 }}
           package: '*.war'
